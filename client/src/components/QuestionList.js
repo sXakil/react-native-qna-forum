@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Container, Card, Button } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import Question from './Question';
 export default class QuestionList extends Component {
 	state = {
-		questions : [],
+		questions       : [],
+		showDeleteModal : false,
 	};
 	fetchQuestions = () => {
 		fetch('http://localhost:3001/qn')
@@ -26,30 +28,27 @@ export default class QuestionList extends Component {
 			questions : prevState.questions.filter((question) => question._id !== id),
 		}));
 	};
+	handleEditThis = async (id) => {};
+	closeModal = () => {
+		this.setState({ showDeleteModal: false });
+	};
+	showModal = () => {
+		this.setState({ showDeleteModal: true });
+	};
 	componentDidMount() {
 		this.fetchQuestions();
-	}
+  }
+  
 	render() {
 		return (
 			<Container style={{ marginTop: 10 }}>
 				{this.state.questions.map((question, index) => (
-					<Question {...question} key={index} deleteThis={() => this.handleDeleteThis(question._id)} />
+						<Question
+							{...question}
+							key={index}
+						/>
 				))}
 			</Container>
 		);
 	}
 }
-const Question = (props) => {
-	return (
-		<Card style={{ width: '100%', marginTop: 10 }}>
-			<Card.Body>
-				<Card.Title>{props.qnTitle}</Card.Title>
-				<Card.Subtitle className="mb-2 text-muted">{props.qnCreated.slice(0, 10)}</Card.Subtitle>
-				<Card.Text>{props.qnDescription}</Card.Text>
-				<Button variant="danger" onClick={() => props.deleteThis()}>
-					Delete
-				</Button>
-			</Card.Body>
-		</Card>
-	);
-};
