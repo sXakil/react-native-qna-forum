@@ -37,17 +37,12 @@ export default class QuestionList extends Component {
 	};
 	componentDidMount() {
 		this.fetchQuestions();
-  }
-  
+	}
+
 	render() {
 		return (
 			<Container style={{ marginTop: 10 }}>
-				{this.state.questions.map((question, index) => (
-						<Question
-							{...question}
-							key={index}
-						/>
-				))}
+				{this.state.questions.map((question, index) => <Question {...question} key={index} />)}
 			</Container>
 		);
 	}
