@@ -24,11 +24,6 @@ function App() {
 								Ask
 							</Link>
 						</Nav.Link>
-						<Nav.Link as="div">
-							<Link style={{ color: '#ddd', textDecorationColor: 'none' }} to="/question">
-								Question Details
-							</Link>
-						</Nav.Link>
 					</Nav>
 					<Form inline>
 						<FormControl type="text" placeholder="Search" className="mr-sm-2" />

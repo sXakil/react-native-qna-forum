@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Card } from 'react-bootstrap';
-import { Container } from 'react-bootstrap';
+import { Card, Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 export default class Question extends Component {
 	render() {
@@ -11,22 +10,22 @@ export default class Question extends Component {
 						<Card.Body>
 							<Card.Title>{this.props.qnTitle}</Card.Title>
 							<Card.Subtitle className="mb-2 text-muted">
-								{this.props.qnCreated.slice(0, 10)}
+								{this.props.qnCreated.slice(0, 10) + ' | ' + this.props.qnAnswers.length + ' answers.'}
 							</Card.Subtitle>
 							<Card.Text>{this.props.qnDescription}</Card.Text>
 						</Card.Body>
 					</Link>
+					<Button
+						size="sm"
+						variant="outline-primary"
+						style={{ marginRight: 10, paddingInline: '0.25rem', paddingBlock: '0.5rem' }}
+						onClick={() => alert('hi')} //this.props.editThis()}
+					>
+						Edit
+				</Button>
 				</Card>
 			</Container>
 		);
 	}
 }
 
-// {/* <Button
-//   size="sm"
-//   variant="outline-primary"
-//   style={{ marginRight: 10 }}
-//   onClick={() => props.editThis()}
-// >
-//   Edit
-// 				</Button> */}

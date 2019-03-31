@@ -27,10 +27,3 @@ const DeleteModal = (props) => {
 };
 
 export default DeleteModal;
-
-// 	< DeleteModal
-// show = { this.state.showDeleteModal }
-// closeThis = {() => this.closeModal()}
-// deleteThis = {() => this.handleDeleteThis(question._id)}
-// msg = { question._id }
-// 	/>

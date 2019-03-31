@@ -15,7 +15,9 @@ exports.newQuestion = (req, res) => {
 }
 
 exports.newAnswer = (req, res) => {
-    db.Question.findById(req.params.qnId, (err, question) => {
+    db.Question.findById(req.params.qnId)
+        .populate('qnAnswers')
+        .exec((err, question) => {
         if (err) {
             res.send(err)
         } else {
@@ -24,9 +26,9 @@ exports.newAnswer = (req, res) => {
                 else {
                     question.qnAnswers.push(answer)
                     question.save()
+                    res.send(answer)
                 }
             })
-            res.send(question)
         }
     })
 }
