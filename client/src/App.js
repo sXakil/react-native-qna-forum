@@ -5,12 +5,13 @@ import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import QuestionList from './components/QuestionList';
 import AskForm from './components/AskForm';
 import QuestionDetails from './components/QuestionDetails';
+import { FaHotjar } from 'react-icons/fa';
 
 function App() {
 	return (
 		<Router>
 			<Navbar bg="dark" variant="dark" expand="lg">
-				<Navbar.Brand>QnA</Navbar.Brand>
+				<Navbar.Brand><FaHotjar size="1.5em"/></Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="mr-auto">
@@ -34,6 +35,7 @@ function App() {
 			<Route exact path="/" component={QuestionList} />
 			<Route path="/ask" component={AskForm} />
 			<Route path="/question/:qnId" component={QuestionDetails} />
+			<div style={{paddingTop: 50}}/>
 		</Router>
 	);
 }

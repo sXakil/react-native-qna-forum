@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Card, Container, Button } from 'react-bootstrap';
+import { Card, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { MdChatBubble, MdDateRange } from 'react-icons/md'
 export default class Question extends Component {
 	render() {
 		return (
@@ -10,22 +11,13 @@ export default class Question extends Component {
 						<Card.Body>
 							<Card.Title>{this.props.qnTitle}</Card.Title>
 							<Card.Subtitle className="mb-2 text-muted">
-								{this.props.qnCreated.slice(0, 10) + ' | ' + this.props.qnAnswers.length + ' answers.'}
+								<MdDateRange/>{' ' + this.props.qnCreated.slice(0, 10)} <span style={{paddingRight: 10}} /> < MdChatBubble/> {this.props.qnAnswers.length + ' answers.'}
 							</Card.Subtitle>
 							<Card.Text>{this.props.qnDescription}</Card.Text>
 						</Card.Body>
 					</Link>
-					<Button
-						size="sm"
-						variant="outline-primary"
-						style={{ marginRight: 10, paddingInline: '0.25rem', paddingBlock: '0.5rem' }}
-						onClick={() => alert('hi')} //this.props.editThis()}
-					>
-						Edit
-				</Button>
 				</Card>
 			</Container>
 		);
 	}
 }
-
