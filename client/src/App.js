@@ -35,7 +35,7 @@ function App() {
 			<Route exact path="/" component={QuestionList} />
 			<Route path="/ask" component={AskForm} />
 			<Route path="/question/:qnId" component={QuestionDetails} />
-			<div style={{paddingTop: 50}}/>
+			
 		</Router>
 	);
 }

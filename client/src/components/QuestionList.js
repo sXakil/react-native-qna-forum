@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Container } from 'react-bootstrap';
 import Question from './Question';
-import Loader from './Loader'
+import Loader from './Loader';
 
 export default class QuestionList extends Component {
 	state = {
 		questions       : [],
-		showDeleteModal: false,
-		loading: true,
+		showDeleteModal : false,
+		loading         : true,
 	};
 	fetchQuestions = async () => {
 		await fetch('http://localhost:3001/qn')
@@ -16,21 +16,21 @@ export default class QuestionList extends Component {
 			.catch((e) => console.warn(e));
 	};
 	handleEditThis = async (id) => {};
-	componentDidMount = async() => {
+	componentDidMount = async () => {
 		await this.fetchQuestions();
 		await setTimeout(() => {
-			this.setState({ loading: false });
-		}, 1500)
-	}
+			this.setState({ loading: false, });
+		}, 500);
+	};
 
 	render() {
 		return (
 			<div>
-				{ this.state.loading ? <Loader /> : <p /> }
-				<Container style={{ marginTop: 10 }}>
+				{this.state.loading ? <Loader /> : <p />}
+				<Container style={{ paddingTop: 10 }}>
 					{this.state.questions.map((question, index) => <Question {...question} key={index} />)}
 				</Container>
 			</div>
 		);
-	}	
+	}
 }

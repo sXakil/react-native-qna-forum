@@ -5,7 +5,7 @@ import '../css/inputs.css';
 export default class AskForm extends Component {
 	state = {
 		qnTitle       : '',
-		qnDescription : '',
+		qnDescription: '',
 	};
 
 	async postToDB(data) {
@@ -35,7 +35,7 @@ export default class AskForm extends Component {
 	render() {
 		return (
 			<Router>
-				<Container style={{ marginTop: 10 }}>
+				<Container style={{ paddingTop: 10 }}>
 					<Form autoComplete="off">
 						<Form.Group controlId="questionForm.QuestionTitle">
 							<Form.Label>Question</Form.Label>

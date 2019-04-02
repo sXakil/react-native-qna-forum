@@ -28,7 +28,7 @@ export default class QuestionDetails extends Component {
 		await this.fetchQuestion();
 		await setTimeout(() => {
 			this.setState({ loading: false });
-		}, 1500)
+		}, 500)
 	};
 
 	async postToDB(data) {
