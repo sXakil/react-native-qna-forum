@@ -10,7 +10,8 @@ export default class QuestionDetails extends Component {
 		qnTitle         : '',
 		qnDescription   : '',
 		qnCreated       : '',
-		qnAnswers       : [],
+		qnAnswers: [],
+		_id: '',
 		url             : 'http://localhost:3001/qn/' + this.props.match.params.qnId,
 		showDeleteModal : false,
 		loading         : true,
@@ -91,7 +92,7 @@ export default class QuestionDetails extends Component {
 								size="sm"
 								variant="outline-primary"
 								style={{ margin: 10, paddingInline: '0.25rem', paddingBlock: '0.5rem', maxWidth: 100 }}
-								onClick={() => alert('hi')} //this.props.editThis()}
+								onClick={async () => await this.props.history.push('/edit/' + this.state._id)} //this.props.editThis()}
 							>
 								<FaRegEdit style={{ marginRight: 5 }} /> Edit
 							</Button>

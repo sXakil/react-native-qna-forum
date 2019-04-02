@@ -36,7 +36,7 @@ function App() {
 			<Route exact path="/" component={QuestionList} />
 			<Route path="/ask" component={AskForm} />
 			<Route path="/question/:qnId" component={QuestionDetails} />
-			<Route path="/question/:qnId/edit"component={EditForm} />
+			<Route path="/edit/:qnId"component={EditForm} />
 		</Router>
 	);
 }
