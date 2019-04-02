@@ -5,6 +5,7 @@ import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import QuestionList from './components/QuestionList';
 import AskForm from './components/AskForm';
 import QuestionDetails from './components/QuestionDetails';
+import EditForm from './components/EditForm'
 import { FaHotjar } from 'react-icons/fa';
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
 			<Route exact path="/" component={QuestionList} />
 			<Route path="/ask" component={AskForm} />
 			<Route path="/question/:qnId" component={QuestionDetails} />
-			
+			<Route path="/question/:qnId/edit"component={EditForm} />
 		</Router>
 	);
 }
