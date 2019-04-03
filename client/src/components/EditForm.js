@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { BrowserRouter as Router } from 'react-router-dom';
+import Loader from './Loader';
 import '../css/inputs.css';
-export default class AskForm extends Component {
+export default class EditForm extends Component {
 	state = {
 		qnTitle       : '',
 		qnDescription : '',
@@ -22,6 +23,9 @@ export default class AskForm extends Component {
 
 	async componentDidMount() {
 		await this.fetchQuestion();
+		await setTimeout(() => {
+			this.setState({ loading: false });
+		}, 500);
 	}
 
 	async putToDB(data) {
@@ -51,6 +55,7 @@ export default class AskForm extends Component {
 	render() {
 		return (
 			<Router>
+				<div>{this.state.loading ? <Loader /> : <p />}</div>
 				<Container style={{ paddingTop: 10 }}>
 					<Form autoComplete="off">
 						<Form.Group controlId="questionForm.QuestionTitle">
