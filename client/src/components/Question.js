@@ -11,9 +11,9 @@ export default class Question extends Component {
 						<Card.Body>
 							<Card.Title>{this.props.qnTitle}</Card.Title>
 							<Card.Subtitle className="mb-2 text-muted">
-								<MdDateRange/>{' ' + this.props.qnCreated.slice(0, 10)} <span style={{paddingRight: 10}} /> < MdChatBubble/> {this.props.qnAnswers.length + ' answers.'}
+								<MdDateRange/>{' ' + this.props.qnCreated.slice(0, 10)} <span style={{paddingRight: 10}} /> < MdChatBubble/> {this.props.qnAnswers.length + ' answer(s).'}
 							</Card.Subtitle>
-							<Card.Text>{this.props.qnDescription}</Card.Text>
+							<Card.Text>{this.props.qnDescription.slice(0, this.props.qnDescription.length % 300) + '...'}</Card.Text>
 						</Card.Body>
 					</Link>
 				</Card>
