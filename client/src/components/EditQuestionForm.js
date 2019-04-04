@@ -22,26 +22,34 @@ export default class EditForm extends Component {
 	};
 
 	async componentDidMount() {
-		await this.fetchQuestion();
-		await setTimeout(() => {
-			this.setState({ loading: false });
-		}, 500);
+		try {
+			console.log(this.props)
+			await this.fetchQuestion();
+			await setTimeout(() => {
+				this.setState({ loading: false });
+			}, 500);
+		} catch (e) {
+			console.error(e);
+		}
 	}
 
 	async putToDB(data) {
-		const response = await fetch(this.state.url, {
-			method      : 'PUT',
-			mode        : 'cors',
-			cache       : 'no-cache',
-			credentials : 'same-origin',
-			headers     : {
-				'Content-Type' : 'application/json',
-			},
-			redirect    : 'follow',
-			referrer    : 'no-referrer',
-			body        : JSON.stringify(data),
-		});
-		return console.log(response.json());
+		try {
+			await fetch(this.state.url, {
+				method      : 'PUT',
+				mode        : 'cors',
+				cache       : 'no-cache',
+				credentials : 'same-origin',
+				headers     : {
+					'Content-Type' : 'application/json',
+				},
+				redirect    : 'follow',
+				referrer    : 'no-referrer',
+				body        : JSON.stringify(data),
+			});
+		} catch (e) {
+			console.error(e);
+		}
 	}
 
 	handleTitleChange = (e) => {
