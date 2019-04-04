@@ -26,7 +26,7 @@ exports.answers = (req, res) => {
 }
 
 exports.answerById = (req, res) => {
-    db.Answer.findById(req.params.id, (err, answer) => {
+    db.Answer.findById(req.params.ansId, (err, answer) => {
             if(err) res.send(err)
             res.send(answer)
     })

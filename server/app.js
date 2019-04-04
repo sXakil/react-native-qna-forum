@@ -2,6 +2,7 @@ const express = require('express'),
 	app = express(),
 	bodyParser = require('body-parser'),
 	cors = require('cors'),
+	db = require('./models')
 	GET = require('./helpers/get'),
 	POST = require('./helpers/post'),
 	PUT = require('./helpers/put'),
