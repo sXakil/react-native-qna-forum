@@ -5,7 +5,7 @@ const DeleteModal = (props) => {
 	return (
 		<Modal show={props.show} onHide={props.closeThis}>
 			<Modal.Header closeButton>
-				<Modal.Title>Delete Question</Modal.Title>
+				<Modal.Title>{'Delete ' + props.what}</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>{'Are you sure you want to delete this?\n' + props.msg}</Modal.Body>
 			<Modal.Footer>
